@@ -1,0 +1,72 @@
+
+<html>
+<head>
+<h1 style="color:red;text-align:center;"> SIGN UP PAGE </h1><hr width=60%>
+<script language="javascript">
+function validation()
+{
+var x=f.un.value;
+var len=x.length;var val=x.charCodeAt(0);
+var p=f.pw.value;
+var c=f.cpw.value;
+var a=f.email.value;
+var age=f.age.value;
+var gender=f.gender.value;
+var atpos=a.indexOf("@");
+var dotpos=a.lastIndexOf(".");
+
+if(len<6||x==""||x==null)
+{
+alert("check your username! must be minimum 6 characters");
+if(val<65 || val>90 && val<97 || val>122) 
+alert("username must begin with an alphabet");
+return false;
+}
+else if(val<65 || val>90 && val<67 || val>122)
+{
+alert("username must begin with an alphabet");
+return false;
+}
+else if(p==" || c==" || p.length<6 || c.length<6 || p!=c)
+{
+alert("password and confirm password should be same and must be greater than 6 characters!");
+return false;
+}
+else if(atpos<6 || dotpos<atpos+6 || dotpos+2>=a.length)
+{
+alert("not a valid email id");
+return false;
+}
+else if(age<18)
+{
+alert("at a valid age");
+return false;
+}
+else if ( ( form.gender[0].checked == false ) && ( form.gender[1].checked == false ) ) 
+{
+alert ( "Please choose your Gender: Male or Female" ); 
+return false;
+}
+else
+{
+alert("congratulations! you have submitted successfully");
+}
+}
+</script>
+</head>
+<title> Validation check! </title>
+<body>
+<table align=center border=3>
+<form name="f" action="tables.html" onsubmit="return validation();" method="post">
+<tr><td>User Name:</td><td><input type="text" name="un"/></td></tr>
+<tr><td>password:</td><td><input type="password" name="pw"/></td></tr>
+<tr><td>confirm password:</td><td><input type="password" name="cpw"/></td></tr>
+<tr><td>E-mail ID:</td><td><input type="text" name="email"/></td></tr>
+</td><td>Age:<input type="number" name="age"/></td></tr>
+</td><td> Gender: <input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female</td></tr>
+<tr><td></td><td><input type="submit" value="submit"/></td></tr>
+</form>
+</table>
+</body>
+</html>
